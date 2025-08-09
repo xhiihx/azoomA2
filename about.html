@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Azoom Logo" width="100px">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <button id="login-link" class="login-btn" onclick="location.href='login.html'">Login</button>
+  </header>
+
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>About Azoom</h1>
+      <p>We are a Singapore-based car rental company committed to making your journey smooth, affordable, and enjoyable.
+      </p>
+    </div>
+  </section>
+
+  <!--Reviews-->
+  <section class="reviews container">
+    <h2>Reviews from our customers</h2>
+
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="review-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="review-text">
+          Easy to use and rent! What a great service this is!
+        </p>
+        <div class="review-footer">Lucy Grey</div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="review-text">
+          I will always be using Azoom whenever I am driving across the country!
+        </p>
+        <div class="review-footer">Natty Oh</div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <p class="review-text">
+          Simply one of the easier sites to book a rental car!
+        </p>
+        <div class="review-footer">Chase Ma</div>
+      </article>
+    </div>
+  </section>
+
+  <!--FAQ-->
+  <section class="faq container">
+    <h2>Top Car Rental Questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>How does it work?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-a" hidden>
+          Book a car online, pick it up at your chosen location, and return it on your selected date. Your bill updates
+          after staff inspection.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Can I rent a car without a credit card?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-a" hidden>
+          For this demo site we simulate credit card payment. In a real deployment, most rentals require a card for the
+          security deposit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>What are the requirements for renting a car?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-a" hidden>
+          A valid driver’s license, minimum age (varies), and an accepted payment method. Terms may differ by location.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Can I tow with the rental vehicle?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-a" hidden>
+          Towing is typically not allowed unless explicitly permitted in the rental agreement.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you offer coverage products?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-a" hidden>
+          In production you’d choose optional coverage at checkout. This demo just shows the flow without upsells.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Azoom Car Rental" class="footer-logo" />
+        <h2>Azoom Car Rental</h2>
+      </div>
+      <div class="footer-contact">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot icon"></i>
+          <div>
+            <p class="label">Address</p>
+            <p><strong>90 Hougang Ave 10, Singapore 538766</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope icon"></i>
+          <div>
+            <p class="label">Email</p>
+            <p><strong>contactazoom@gmail.com</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone icon"></i>
+          <div>
+            <p class="label">Phone</p>
+            <p><strong>+65 99992222</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h3>Useful links</h3>
+      <ul class="footer-links-row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="vehicles.html">Vehicles</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="loginscript.js"></script>
+  <script src="common.js"></script>
+  <script src="about.js"></script>
+  <script>
+    updateLoginNav();
+  </script>
+
+</body>
+
+</html>

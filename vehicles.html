@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicles</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Azoom Logo" width="100px">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <button id="login-link" class="login-btn" onclick="location.href='login.html'">Login</button>
+  </header>
+
+  <div class="container">
+    <section class="car-selection">
+      <div class="section-header">
+        <h2>Available Vehicles</h2>
+      </div>
+      <div class="car-grid">
+
+        <!-- Mercs SUV -->
+        <div class="car-card">
+          <img src="assets/mercs/merc_suv.png" alt="Mercedes SUV">
+          <div class="car-info">
+            <h3>Mercedes</h3>
+            <p>SUV</p>
+            <p class="price">$25 <span>per day</span></p>
+            <button class="view-details" data-car="Mercedes SUV" data-price="25">View Details</button>
+          </div>
+        </div>
+
+        <!-- Mercs Saloon -->
+        <div class="car-card">
+          <img src="assets/mercs/iris_saloon.png" alt="Mercedes Saloon">
+          <div class="car-info">
+            <h3>Mercedes</h3>
+            <p>Saloon</p>
+            <p class="price">$50 <span>per day</span></p>
+            <button class="view-details" data-car="Mercedes Saloon" data-price="50">View Details</button>
+          </div>
+        </div>
+
+        <!-- Mercs MPV -->
+        <div class="car-card">
+          <img src="assets/mercs/mpv.webp" alt="Mercedes MPV">
+          <div class="car-info">
+            <h3>Mercedes</h3>
+            <p>MPV</p>
+            <p class="price">$45 <span>per day</span></p>
+            <button class="view-details" data-car="Mercedes MPV" data-price="45">View Details</button>
+          </div>
+        </div>
+
+        <!-- Toyota RAV4 -->
+        <div class="car-card">
+          <img src="assets/Toyota/r4v4.png" alt="Toyota RAV4">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>RAV4</p>
+            <p class="price">$35 <span>per day</span></p>
+            <button class="view-details" data-car="Toyota RAV4" data-price="35">View Details</button>
+          </div>
+        </div>
+
+        <!-- Toyota Harrier -->
+        <div class="car-card">
+          <img src="assets//Toyota/harrier.png" alt="Toyota Harrier">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>Harrier</p>
+            <p class="price">$50 <span>per day</span></p>
+            <button class="view-details" data-car="Toyota Harrier" data-price="50">View Details</button>
+          </div>
+        </div>
+
+        <!-- Toyota Corolla Altis -->
+        <div class="car-card">
+          <img src="assets/Toyota/short-term-car-rental-toyota-altis-hybrid.png" alt="Toyota Corolla Altis">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>Corolla Altis</p>
+            <p class="price">$50 <span>per day</span></p>
+            <button class="view-details" data-car="Toyota Corolla Altis" data-price="50">View Details</button>
+          </div>
+        </div>
+
+        <!-- Toyota Corolla Cross -->
+        <div class="car-card">
+          <img src="assets/Toyota/toyota_corolla.png" alt="Toyota Corolla Cross">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>Corolla Cross</p>
+            <p class="price">$60 <span>per day</span></p>
+            <button class="view-details" data-car="Toyota Corolla Cross" data-price="60">View Details</button>
+          </div>
+        </div>
+
+        <!-- Toyota Yaris Cross -->
+        <div class="car-card">
+          <img src="assets/Toyota/yaris_cross.png" alt="Toyota Yaris Cross">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>Yaris Cross</p>
+            <p class="price">$70 <span>per day</span></p>
+            <button class="view-details" data-car="Toyota Yaris Cross" data-price="70">View Details</button>
+          </div>
+        </div>
+
+        <!-- Toyota Alphard -->
+        <div class="car-card">
+          <img src="assets/Toyota/alphard_202_04_variant_720x430.png" alt="Toyota Alphard">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>Alphard</p>
+            <p class="price">$50 <span>per day</span></p>
+            <button class="view-details" data-car="Toyota Alphard" data-price="50">View Details</button>
+          </div>
+        </div>
+
+        <!-- BMW Z4 Roadster -->
+        <div class="car-card">
+          <img src="assets/BMW/bmw_z4_roadster.png" alt="BMW Z4 Roadster">
+          <div class="car-info">
+            <h3>BMW</h3>
+            <p>Z4 Roadster</p>
+            <p class="price">$200 <span>per day</span></p>
+            <button class="view-details" data-car="BMW Z4 Roadster" data-price="200">View Details</button>
+          </div>
+        </div>
+
+        <!-- BMW Series 1 -->
+        <div class="car-card">
+          <img src="assets/BMW/bmw_series 1.png" alt="BMW Series 1">
+          <div class="car-info">
+            <h3>BMW</h3>
+            <p>Series 1</p>
+            <p class="price">$60 <span>per day</span></p>
+            <button class="view-details" data-car="BMW Series 1" data-price="60">View Details</button>
+          </div>
+        </div>
+
+        <!-- BMW MW315 -->
+        <div class="car-card">
+          <img src="assets/BMW/bmw_m135.png" alt="BMW MW315">
+          <div class="car-info">
+            <h3>BMW</h3>
+            <p>MW315</p>
+            <p class="price">$70 <span>per day</span></p>
+            <button class="view-details" data-car="BMW MW315" data-price="70">View Details</button>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </section>
+  </div>
+
+  <!-- Credit card form -->
+  <div id="ccardModal" class="ccmodal hidden">
+    <div class="ccmodal-content">
+      <span class="close" id="closeCardModal">&times;</span>
+      <h3>Enter Payment Details</h3>
+      <form id="ccardForm">
+        <input type="text" placeholder="Credit Card Number" required />
+        <input type="text" placeholder="Name on Card" required />
+        <input type="text" placeholder="Expiry Date (MM/YY)" required />
+        <input type="text" placeholder="CVV" required />
+        <button type="submit">Confirm Payment</button>
+      </form>
+    </div>
+  </div>
+
+  <!--Booking form for specific car details -->
+  <div id="carBookingModal" class="ccmodal hidden">
+    <div class="ccmodal-content">
+      <span class="modal-close" id="closeCarBookingModal">&times;</span>
+      <h3>Book this car</h3>
+      <form id="carBookingForm">
+        <input type="text" id="cb-name" placeholder="Full Name" required />
+        <input type="email" id="cb-email" placeholder="Email Address" required />
+
+        <!-- Car name (auto-filled) -->
+        <input type="text" id="cb-car" readonly />
+        <input type="text" id="cb-price" readonly />
+
+        <div class="date-fields">
+          <div class="date-group">
+            <label for="cb-pickup">Pickup Date</label>
+            <input type="date" id="cb-pickup" required />
+          </div>
+          <div class="date-group">
+            <label for="cb-return">Return Date</label>
+            <input type="date" id="cb-return" required />
+          </div>
+        </div>
+
+        <button type="button" id="cb-book-now">Book now</button>
+      </form>
+    </div>
+  </div>
+
+   <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Azoom Car Rental" class="footer-logo" />
+        <h2>Azoom Car Rental</h2>
+      </div>
+      <div class="footer-contact">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot icon"></i>
+          <div>
+            <p class="label">Address</p>
+            <p><strong>90 Hougang Ave 10, Singapore 538766</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope icon"></i>
+          <div>
+            <p class="label">Email</p>
+            <p><strong>contactazoom@gmail.com</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone icon"></i>
+          <div>
+            <p class="label">Phone</p>
+            <p><strong>+65 99992222</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h3>Useful links</h3>
+      <ul class="footer-links-row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="vehicles.html">Vehicles</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="loginscript.js"></script>
+  <script src="bookingscript.js"></script>
+  <script src="common.js"></script>
+  <script>
+    updateLoginNav();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,812 @@
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111;
+}
+
+.navbar a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  font-size: 1.4rem;
+}
+
+.navbar a:hover {
+  background-color: #333;
+  /* lighter hover highlight */
+}
+
+.navbar a:active {
+  background-color: #222;
+  /* slightly darker on click */
+}
+
+.login-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: #708090;
+  color: white;
+  border: none;
+}
+
+.login-btn:hover {
+  background-color: #525c6c;
+}
+
+/*Admin panel hero text*/
+#admin-hero {
+  justify-content: center;
+  text-align: center;
+}
+
+#admin-hero .hero-text {
+  max-width: 100%;
+}
+
+/*Homepage hero*/
+.hero {
+  display: flex;
+  justify-content: center;
+  /* horizontally center */
+  align-items: center;
+  /* vertically center */
+  gap: 2rem;
+  /* spacing between text and form */
+  padding: 4rem 2rem;
+  background-color: #67656E;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.hero-text {
+  max-width: 500px;
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.booking-form {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 420px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.booking-form label {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0.25rem;
+  display: block;
+  color: #000;
+}
+
+/* Side-by-side date inputs */
+.booking-form .date-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.booking-form .date-col {
+  flex: 1;
+}
+
+.booking-form select,
+.booking-form input {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.booking-toggle-buttons button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #708090;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.booking-toggle-buttons button:hover {
+  background-color: #525c6c;
+}
+
+
+.btn-primary {
+  background-color: #2196f3;
+  border: none;
+  padding: 0.6rem;
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+}
+
+.btn-book {
+  background-color: #2196f3;
+  border: none;
+  padding: 0.6rem;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.banner {
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  padding-top: 25px;
+  height: 0;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+}
+
+.home-header h2 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.home-header .view-all-btn {
+  background-color: #708090;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.home-header .view-all-btn:hover {
+  background-color: #5a6b7a;
+}
+
+.view-all-btn {
+  padding: 0.5rem 1rem;
+  background-color: #708090;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.view-all-btn:hover {
+  background-color: #4b6584;
+}
+
+.view-all-btn:visited {
+  color: white;
+  /* Reset so it doesnt become purple */
+}
+
+.title-and-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1800px;
+  /* higher value to make it to the center*/
+  padding: 0 2rem;
+  /* controls spacing from screen edge */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.car-selection {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.car-grid {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.car-card {
+  background-color: #2e2e2e;
+  padding: 1rem;
+  border-radius: 16px;
+  width: 260px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  display: flex;
+}
+
+.car-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  object-fit: contain;
+}
+
+.car-info h3 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.price {
+  color: #00cc66;
+  margin: 0.5rem 0;
+}
+
+.car-card button {
+  padding: 0.5rem 1rem;
+  background-color: #708090;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.car-card button:hover {
+  background-color: #525c6c;
+}
+
+.facts {
+  text-align: center;
+  padding: 2rem;
+  background: #708090;
+}
+
+.fact-icon {
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+img.stat-icon {
+  border-radius: 12px;
+}
+
+.footer {
+  background-color: #111;
+  /* black background */
+  color: white;
+  padding: 2rem;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 1 100%;
+}
+
+.footer-logo {
+  width: 80px;
+  height: auto;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  flex: 1 1 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 220px;
+}
+
+.contact-item .icon {
+  width: 30px;
+  height: 30px;
+}
+
+.contact-item .label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-links {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.footer-links h3 {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.footer-links-row {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-links-row li a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.footer-links-row li a:hover {
+  color: white;
+}
+
+.footer-contact .icon {
+  background-color: #1e90ff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  font-size: 14px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -4rem;
+}
+
+/*Login css*/
+.login-container {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-container h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.login-container input[type="email"],
+.login-container input[type="name"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.login-container button {
+  background-color: #3399ff;
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-container p {
+  color: white;
+  margin-top: 1rem;
+}
+
+.login-container a {
+  color: #3399ff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/*Credit card CSS*/
+
+.ccmodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.ccmodal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Work Sans', sans-serif;
+  position: relative;
+  animation: popIn 0.3s ease-out;
+}
+
+#closeCardModal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#closeCardModal:hover {
+  color: #000;
+}
+
+#ccardForm button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#ccardForm input {
+  padding: 0.85rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem; 
+  background-color: #f7f7f7;
+}
+
+/*Feedback part*/
+#ccardForm input:focus {
+  outline: none;
+  border-color: #0099ff;
+  background-color: #f0f0f0;
+}
+
+#ccardForm button {
+  background-color: #0099ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#ccardForm button:hover {
+  background-color: #007acc;
+}
+
+/*Book card css*/
+
+.booking-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+}
+
+.booking-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.booking-card strong {
+  font-weight: 600;
+}
+
+.booking-card button {
+  margin-top: 1rem;
+}
+
+/*popup booking form*/
+#carBookingModal.ccmodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* semi-transparent dark */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Inner content box */
+#carBookingModal .ccmodal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Input layout */
+#carBookingForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+#carBookingForm input,
+#carBookingForm button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  flex: 1 1 45%;
+}
+
+#carBookingForm input[readonly] {
+  background-color: #f0f0f0;
+}
+
+/*Popup book form - date css*/
+.date-fields {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.date-group label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #000;
+  /* Or #fff if using dark theme */
+}
+
+#cb-book-now {
+  width: 100%;
+}
+
+
+
+/* Full-width for name/email fields */
+#cb-name,
+#cb-email {
+  flex: 1 1 100%;
+}
+
+/* Button styling to match your site */
+#carBookingForm button {
+  background-color: #0099ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#carBookingForm button:hover {
+  background-color: #555;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+/*bill popup*/
+#billModal .ccmodal-content {
+  color: black;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-logo {
+  width: 80px;
+  height: auto;
+}
+
+.modal-title {
+  font-size: 2rem;
+  /* adjust size as needed */
+  font-weight: 700;
+  margin: 0;
+}
+
+/*Animation*/
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+
+  .booking-form {
+    width: 100%;
+    max-width: 90%;
+    margin-top: 2rem;
+  }
+
+  .booking-form .date-row {
+    flex-direction: column;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .car-grid {
+    flex-direction: column;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  .car-card {
+    width: 90%;
+  }
+
+  .date-fields {
+    flex-direction: column;
+  }
+}

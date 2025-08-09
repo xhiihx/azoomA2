@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="loginscript.js" defer></script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Azoom Logo" width="100px">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <button id="login-link" class="login-btn">Login</button>
+  </header>
+
+  <!-- Login Section -->
+  <main style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+    <div class="login-container">
+      <h2 style="text-align:center;" id="formTitle">Login</h2>
+
+      <form id="loginForm" class="form">
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p>No account? <a onclick="toggleView('registerForm')">Register</a> | <a
+            onclick="toggleView('resetForm')">Forgot password?</a></p>
+      </form>
+
+      <form id="registerForm" class="form hidden">
+        <input type="name" id="registerName" placeholder="Name" required />
+        <input type="email" id="registerEmail" placeholder="Email" required />
+        <input type="password" id="registerPassword" placeholder="Password" required />
+        <button type="submit">Register</button>
+        <p>Already have an account? <a onclick="toggleView('loginForm')">Login</a></p>
+      </form>
+
+      <form id="resetForm" class="form hidden">
+        <input type="email" id="resetEmail" placeholder="Enter your email" required />
+        <button type="submit">Reset Password</button>
+        <p><a onclick="toggleView('loginForm')">Back to login</a></p>
+      </form>
+
+      <div id="welcome" class="form hidden">
+        <h3>Welcome, <span id="userEmail"></span>!</h3>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Azoom Car Rental" class="footer-logo" />
+        <h2>Azoom Car Rental</h2>
+      </div>
+      <div class="footer-contact">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot icon"></i>
+          <div>
+            <p class="label">Address</p>
+            <p><strong>90 Hougang Ave 10, Singapore 538766</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope icon"></i>
+          <div>
+            <p class="label">Email</p>
+            <p><strong>contactazoom@gmail.com</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone icon"></i>
+          <div>
+            <p class="label">Phone</p>
+            <p><strong>+65 99992222</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h3>Useful links</h3>
+      <ul class="footer-links-row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="vehicles.html">Vehicles</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="loginscript.js"></script>
+  <script src="common.js"></script>
+  <script>
+    updateLoginNav();
+  </script>
+
+</body>
+
+</html>

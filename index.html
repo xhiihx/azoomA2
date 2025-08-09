@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azoom Car Rental</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Azoom Logo" width="100px">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <button id="login-link" class="login-btn" onclick="location.href='login.html'">Login</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Experience the road like never before</h1>
+      <p>Easy rent and easy returns! Renting made easy with a few clicks of a button!</p>
+      <button class="btn-primary" onclick="location.href='vehicles.html'">View all cars</button>
+    </div>
+
+    <!-- Booking form -->
+    <div class="booking-form" id="manualBookingForm">
+      <h2>Book your car</h2>
+
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <!--<input type="text" id="cardNumber" placeholder="Credit Card Number" required pattern="\d{16}"
+        title="Enter a 16-digit card number" /> -->
+
+      <select id="carType">
+        <option>Car type</option>
+      </select>
+      <select id="rentalPlace">
+        <option>Place of rental</option>
+      </select>
+      <select id="returnPlace">
+        <option>Place of return</option>
+      </select>
+
+      <div class="date-row">
+        <div class="date-col">
+          <label for="rentalDate">Pickup Date</label>
+          <input type="date" id="rentalDate" required />
+        </div>
+        <div class="date-col">
+          <label for="returnDate">Return Date</label>
+          <input type="date" id="returnDate" required />
+        </div>
+      </div>
+
+      <button class="btn-book" id="openCardModal">Book now</button>
+    </div>
+
+    <!-- Credit card form -->
+    <div id="ccardModal" class="ccmodal hidden">
+      <div class="ccmodal-content">
+        <span class="close" id="closeCardModal">&times;</span>
+        <h3>Enter Payment Details</h3>
+        <form id="ccardForm">
+          <input type="text" placeholder="Credit Card Number" required />
+          <input type="text" placeholder="Name on Card" required />
+          <input type="text" placeholder="Expiry Date (MM/YY)" required />
+          <input type="text" placeholder="CVV" required />
+          <button type="submit">Confirm Payment</button>
+        </form>
+      </div>
+    </div>
+
+    <!--Booking form for specific car details -->
+    <div id="carBookingModal" class="ccmodal hidden">
+      <div class="ccmodal-content">
+        <span class="modal-close" id="closeCarBookingModal">&times;</span>
+        <h3>Book this car</h3>
+        <form id="carBookingForm">
+          <input type="text" id="cb-name" placeholder="Full Name" required />
+          <input type="email" id="cb-email" placeholder="Email Address" required />
+
+          <!-- Car name (auto-filled) -->
+          <input type="text" id="cb-car" readonly />
+          <input type="text" id="cb-price" readonly />
+
+          <div class="date-fields">
+            <div class="date-group">
+              <label for="cb-pickup">Pickup Date</label>
+              <input type="date" id="cb-pickup" required />
+            </div>
+            <div class="date-group">
+              <label for="cb-return">Return Date</label>
+              <input type="date" id="cb-return" required />
+            </div>
+          </div>
+
+          <button type="button" id="cb-book-now">Book now</button>
+        </form>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- Banner Image -->
+  <!--
+  <section class="banner">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/watch?v=EXFlYUM5FgI" title="Driving Around" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+  -->
+
+  <!-- Car Selection -->
+  <section class="car-selection">
+    <div class="container">
+      <div class="section-header home-header">
+        <div class="title-and-button">
+          <h2>Choose the car that suits you</h2>
+          <a href="vehicles.html" class="view-all-btn">View All</a>
+        </div>
+      </div>
+
+      <!--Mercedes SUV-->
+      <div class="car-grid">
+        <div class="car-card">
+          <img src="assets/mercs/merc_suv.png" alt="Mercedes SUV">
+          <div class="car-info">
+            <h3>Mercedes</h3>
+            <p>SUV</p>
+            <p class="price">$25 <span>per day</span></p>
+            <button class="view-details" data-price="25" data-car="Mercedes SUV">View Details</button>
+          </div>
+        </div>
+
+        <!--Mercedes Saloon-->
+        <div class="car-card">
+          <img src="assets/mercs/iris_saloon.png" alt="Mercedes Saloon">
+          <div class="car-info">
+            <h3>Mercedes</h3>
+            <p>Saloon</p>
+            <p class="price">$50 <span>per day</span></p>
+            <button class="view-details" data-price="50" data-car="Mercedes Saloon">View Details</button>
+          </div>
+        </div>
+
+        <!--Mercedes MPV-->
+        <div class="car-card">
+          <img src="assets/mercs/mpv.webp" alt="Mercedes MPV">
+          <div class="car-info">
+            <h3>Mercedes</h3>
+            <p>MPV</p>
+            <p class="price">$45 <span>per day</span></p>
+            <button class="view-details" data-price="45" data-car="Mercedes MPV">View Details</button>
+          </div>
+        </div>
+
+        <!--BMW z4-->
+        <div class="car-card">
+          <img src="assets/BMW/bmw_z4_roadster.png" alt="BMW Z4" width="50%">
+          <div class="car-info">
+            <h3>BMW</h3>
+            <p>Z4 Roadster</p>
+            <p class="price">$200 <span>per day</span></p>
+            <button class="view-details" data-price="200" data-car="BMW Z4 Roadster">View Details</button>
+          </div>
+        </div>
+
+        <!--Toyota R4V4-->
+        <div class="car-card">
+          <img src="assets/Toyota/r4v4.png" alt="Toyota RAV4">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>R4V4</p>
+            <p class="price">$35 <span>per day</span></p>
+            <button class="view-details" data-price="35" data-car="Toyota R4V4">View Details</button>
+          </div>
+        </div>
+
+        <!--Toyota Harrier-->
+        <div class="car-card">
+          <img src="assets/Toyota/harrier.png" alt="Toyota Harrier">
+          <div class="car-info">
+            <h3>Toyota</h3>
+            <p>Harrier</p>
+            <p class="price">$50 <span>per day</span></p>
+            <button class="view-details" data-price="50" data-car="Toyota Harrier">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Counter / Stats -->
+  <section class="facts">
+  <h2>Facts In Numbers</h2>
+  <p>Azoom has had many happy customers who regularly use our rental service...</p>
+  <div class="stats">
+    <div>
+      <div class="fact-icon"><i class="fa-solid fa-car"></i></div>
+      <p>540+ Cars</p>
+    </div>
+    <div>
+      <div class="fact-icon"><i class="fa-solid fa-user-group"></i></div>
+      <p>20k+ Customers</p>
+    </div>
+    <div>
+      <div class="fact-icon"><i class="fa-solid fa-calendar-check"></i></div>
+      <p>25+ Years</p>
+    </div>
+    <div>
+      <div class="fact-icon"><i class="fa-solid fa-gauge-high"></i></div>
+      <p>20KM+ Kilometers</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Azoom Car Rental" class="footer-logo" />
+        <h2>Azoom Car Rental</h2>
+      </div>
+      <div class="footer-contact">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot icon"></i>
+          <div>
+            <p class="label">Address</p>
+            <p><strong>90 Hougang Ave 10, Singapore 538766</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope icon"></i>
+          <div>
+            <p class="label">Email</p>
+            <p><strong>contactazoom@gmail.com</strong></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone icon"></i>
+          <div>
+            <p class="label">Phone</p>
+            <p><strong>+65 99992222</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h3>Useful links</h3>
+      <ul class="footer-links-row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="vehicles.html">Vehicles</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="loginscript.js"></script>
+  <script src="bookingscript.js"></script>
+  <script src="common.js"></script>
+  <script>
+    updateLoginNav();
+  </script>
+</body>
+
+</html>

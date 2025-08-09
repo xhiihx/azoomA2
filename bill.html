@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing Records</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Azoom Logo" width="100px" />
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="vehicles.html">Vehicles</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <button id="login-link" class="login-btn" onclick="location.href='login.html'">Login</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="admin-hero">
+        <div class="hero-text">
+            <h1>Billing Records</h1>
+            <p>View confirmed returns and payment breakdowns.</p>
+        </div>
+    </section>
+
+    <!-- Bills Section -->
+    <div class="container">
+        <section class="car-selection">
+            <div class="section-header">
+            </div>
+            <div id="billCards" class="car-grid"></div>
+        </section>
+    </div>
+
+    <!-- Bill Modal -->
+    <div id="billModal" class="ccmodal hidden">
+        <div class="ccmodal-content">
+            <span class="modal-close" onclick="closeBillModal()">×</span>
+
+            <div class="modal-header">
+                <img src="assets/logo.png" alt="Azoom Logo" class="modal-logo" width="100px">
+                <h2 class="modal-title">Azoom</h2>
+            </div>
+
+            <hr />
+            <p><strong>Name:</strong> <span id="billName"></span></p>
+            <p><strong>Car type:</strong> <span id="billCar"></span></p>
+            <p><strong>Rent payment:</strong> $<span id="billRent"></span></p>
+            <p><strong>Damage fees:</strong> $<span id="billDamage"></span></p>
+            <p><strong>Total cost:</strong> $<span id="billTotal"></span></p>
+            <br />
+            <button class="btn-primary" id="billPayBtn">Pay Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Azoom Car Rental" class="footer-logo" />
+                <h2>Azoom Car Rental</h2>
+            </div>
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot icon"></i>
+                    <div>
+                        <p class="label">Address</p>
+                        <p><strong>90 Hougang Ave 10, Singapore 538766</strong></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <div>
+                        <p class="label">Email</p>
+                        <p><strong>contactazoom@gmail.com</strong></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone icon"></i>
+                    <div>
+                        <p class="label">Phone</p>
+                        <p><strong>+65 99992222</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Useful links</h3>
+            <ul class="footer-links-row">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="vehicles.html">Vehicles</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="loginscript.js"></script>
+    <script src="bill.js"></script>
+    <script src="common.js"></script>
+    <script>
+        updateLoginNav();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Azoom Logo" width="100px">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="vehicles.html">Vehicles</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <button id="login-link" class="login-btn" onclick="location.href='login.html'">Login</button>
+    </header>
+
+    <!-- Main Admin Section -->
+    <section class="hero" id="admin-hero">
+        <div class="hero-text">
+            <h1>Admin Panel</h1>
+            <p>Manage bookings, returns, and billing details.</p>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!--Section to confirm new bookings-->
+        <section class="car-selection">
+            <div class="section-header">
+                <h2>New Bookings</h2>
+            </div>
+            <div id="newBookingsList" class="car-grid">
+
+            </div>
+        </section>
+
+        <!-- Section for unreturned bookings -->
+        <section class="car-selection">
+            <div class="section-header">
+                <h2>Pending Returns</h2>
+            </div>
+            <div id="bookingTable" class="car-grid">
+
+            </div>
+        </section>
+
+        <!-- Section for returned bookings -->
+        <section class="car-selection">
+            <div class="section-header">
+                <h2>Completed Returns</h2>
+            </div>
+            <div id="returnedBookings" class="car-grid">
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Damage Fee Modal -->
+    <div id="damageModal" class="ccmodal hidden">
+        <div class="ccmodal-content">
+            <span id="closeDamageModal" class="close">&times;</span>
+            <h3>Enter Damage Fee</h3>
+            <form id="damageForm">
+                <input type="number" id="damageFee" placeholder="Enter fee in $" min="0" required />
+                <button type="submit" class="btn-primary" onclick="finalizeReturn()">Confirm Return</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Azoom Car Rental" class="footer-logo" />
+                <h2>Azoom Car Rental</h2>
+            </div>
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot icon"></i>
+                    <div>
+                        <p class="label">Address</p>
+                        <p><strong>90 Hougang Ave 10, Singapore 538766</strong></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <div>
+                        <p class="label">Email</p>
+                        <p><strong>contactazoom@gmail.com</strong></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone icon"></i>
+                    <div>
+                        <p class="label">Phone</p>
+                        <p><strong>+65 99992222</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Useful links</h3>
+            <ul class="footer-links-row">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="vehicles.html">Vehicles</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="loginscript.js"></script>
+    <script src="common.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        updateLoginNav();
+
+        //update admin html
+        displayNewBookings();
+        displayPendingReturns();
+        displayCompletedReturns();
+
+        // Close damage modal
+        document.getElementById("closeDamageModal").onclick = () => {
+            document.getElementById("damageModal").classList.add("hidden");
+        };
+    </script>
+
+</body>
+
+</html>
