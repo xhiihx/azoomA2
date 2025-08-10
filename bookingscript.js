@@ -61,7 +61,7 @@ if (openBtn) {
 
         const carName = selectedOption.value;
         const price = selectedOption.dataset.price;
-        
+
         const pickupDate = document.getElementById("rentalDate")?.value || "";
         const returnDate = document.getElementById("returnDate")?.value || "";
 
@@ -192,29 +192,42 @@ document.getElementById("ccardForm").addEventListener("submit", function (e) {
 
 //For loading form dropdowns
 window.onload = () => {
-    populateSelect("carType", carTypes, "Select Car");
-    populateSelect("rentalPlace", rentalPlaces, "Select Pickup location");
-    populateSelect("returnPlace", rentalPlaces, "Select Return location");
+    // Guard: only populate selects that exist on the page
+    const carTypeSel = document.getElementById("carType");
+    if (carTypeSel) populateSelect("carType", carTypes, "Select Car");
+
+    const rentalSel = document.getElementById("rentalPlace");
+    if (rentalSel) populateSelect("rentalPlace", rentalPlaces, "Select Pickup location");
+
+    const returnSel = document.getElementById("returnPlace");
+    if (returnSel) populateSelect("returnPlace", rentalPlaces, "Select Return location");
 
     const cbPickupLoc = document.getElementById("cb-pickup-loc");
-    const cbReturnLoc = document.getElementById("cb-return-loc");
     if (cbPickupLoc) populateSelect("cb-pickup-loc", rentalPlaces, "Select Pickup location");
+
+    const cbReturnLoc = document.getElementById("cb-return-loc");
     if (cbReturnLoc) populateSelect("cb-return-loc", rentalPlaces, "Select Return location");
+
 
 
     //Populate the booking forms
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
-        const homeNameField = document.getElementById("fullName");
-        const homeEmailField = document.getElementById("email");
-        if (homeNameField && storedUser.name) homeNameField.value = storedUser.name;
-        if (homeEmailField && storedUser.email) homeEmailField.value = storedUser.email;
+        // Only set if value exists in storage — otherwise leave placeholder
+        const nameVal = storedUser.name || "";
+        const emailVal = storedUser.email || "";
 
-        // Popup form
-        const popupNameField = document.getElementById("cb-name");
-        const popupEmailField = document.getElementById("cb-email");
-        if (popupNameField && storedUser.name) popupNameField.value = storedUser.name;
-        if (popupEmailField && storedUser.email) popupEmailField.value = storedUser.email;
+        // Homepage main booking form (index.html)
+        const homeName = document.getElementById("fullName");
+        const homeEmail = document.getElementById("email");
+        if (homeName && nameVal) homeName.value = nameVal;
+        if (homeEmail && emailVal) homeEmail.value = emailVal;
+
+        // Popup booking form (exists on both index.html & vehicles.html)
+        const cbName = document.getElementById("cb-name");
+        const cbEmail = document.getElementById("cb-email");
+        if (cbName && nameVal) cbName.value = nameVal;
+        if (cbEmail && emailVal) cbEmail.value = emailVal;
     }
 };
 
