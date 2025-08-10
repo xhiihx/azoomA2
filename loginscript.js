@@ -29,8 +29,10 @@ function toggleView(idToShow) {
 // Simulate register
 document.getElementById('registerForm').addEventListener('submit', function (e) {
   e.preventDefault();
+  const name = document.getElementById('registerName').value;
   const email = document.getElementById('registerEmail').value;
   const password = document.getElementById('registerPassword').value;
+  localStorage.setItem('userName', name);
   localStorage.setItem('userEmail', email);
   localStorage.setItem('userPassword', password);
   alert('Registration successful. You can now log in.');
@@ -48,7 +50,8 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
   if (email === savedEmail && password === savedPassword) {
     localStorage.setItem('loginStatus', 'true');
-    localStorage.setItem("user", JSON.stringify({ role: "user", email }));
+    const storedName = localStorage.getItem("userName") || email.split("@")[0];
+    localStorage.setItem("user", JSON.stringify({ role: "user", email, name: storedName }));
     document.getElementById('userEmail').textContent = email;
     toggleView('welcome');
     console.log('creating redirect')
@@ -82,7 +85,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
   } else if (email === "admin@azoom.com" && password === "admin123") { //check if admin
     //admin login
     localStorage.setItem("loginStatus", "true");
-    localStorage.setItem("user", JSON.stringify({ role: "admin", email }));
+    localStorage.setItem("user", JSON.stringify({ role: "admin", email, name: "Admin" }));
     window.location.href = "admin.html";
   } else {
     alert('Invalid email or password');

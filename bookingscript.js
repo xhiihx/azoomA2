@@ -61,15 +61,21 @@ if (openBtn) {
 
         const carName = selectedOption.value;
         const price = selectedOption.dataset.price;
-
-        const fullName = document.getElementById("fullName").value;
-        const email = document.getElementById("email").value;
+        
         const pickupDate = document.getElementById("rentalDate")?.value || "";
         const returnDate = document.getElementById("returnDate")?.value || "";
 
+        //take from homepage
+        const rentalPlace = document.getElementById("rentalPlace")?.value || "";
+        const returnPlace = document.getElementById("returnPlace")?.value || "";
+        const cbPickupLoc = document.getElementById("cb-pickup-loc");
+        const cbReturnLoc = document.getElementById("cb-return-loc");
+
+        if (cbPickupLoc && rentalPlace) cbPickupLoc.value = rentalPlace;
+        if (cbReturnLoc && returnPlace) cbReturnLoc.value = returnPlace;
+
+
         // Pre-fill modal fields
-        document.getElementById("cb-name").value = fullName;
-        document.getElementById("cb-email").value = email;
         document.getElementById("cb-car").value = carName;
         document.getElementById("cb-price").value = `$${price} per day`;
         document.getElementById("cb-pickup").value = pickupDate;
@@ -94,14 +100,24 @@ document.querySelectorAll(".view-details").forEach(btn => {
         console.log("Click detected for:", btn.dataset.car);
         const carName = btn.dataset.car;
         const carPrice = btn.dataset.price;
+        const cbPickupLoc = document.getElementById("cb-pickup-loc");
+        const cbReturnLoc = document.getElementById("cb-return-loc");
+
+        if (cbPickupLoc && cbPickupLoc.options.length <= 1) {
+            populateSelect("cb-pickup-loc", rentalPlaces, "Select Pickup location");
+        }
+        if (cbReturnLoc && cbReturnLoc.options.length <= 1) {
+            populateSelect("cb-return-loc", rentalPlaces, "Select Return location");
+        }
+
+        let autoMirror = true;
+        cbPickupLoc?.addEventListener("change", () => {
+            if (autoMirror && cbReturnLoc && !cbReturnLoc.value) cbReturnLoc.value = cbPickupLoc.value;
+        });
+        cbReturnLoc?.addEventListener("change", () => { autoMirror = false; });
 
         document.getElementById("cb-car").value = carName;
         document.getElementById("cb-price").value = `$${carPrice} per day`;
-
-        const storedUser = JSON.parse(localStorage.getItem("user"));
-        if (storedUser?.email) {
-            document.getElementById("cb-email").value = storedUser.email;
-        }
 
         document.getElementById("carBookingModal").classList.remove("hidden");
     });
@@ -140,6 +156,10 @@ document.getElementById("ccardForm").addEventListener("submit", function (e) {
     const pricePerDay = parseFloat(document.getElementById("cb-price").value.replace(/[^\d.]/g, ''));
     const pickup = document.getElementById("cb-pickup").value;
     const ret = document.getElementById("cb-return").value;
+    const pickupLocation = document.getElementById("cb-pickup-loc")?.value
+        || document.getElementById("rentalPlace")?.value || "";
+    const returnLocation = document.getElementById("cb-return-loc")?.value
+        || document.getElementById("returnPlace")?.value || "";
 
     const start = new Date(pickup);
     const end = new Date(ret);
@@ -157,6 +177,8 @@ document.getElementById("ccardForm").addEventListener("submit", function (e) {
         days,
         pricePerDay,
         total,
+        pickupLocation,
+        returnLocation,
         pickedUp: false,
         returned: false,
         damageFee: 0,
@@ -173,6 +195,27 @@ window.onload = () => {
     populateSelect("carType", carTypes, "Select Car");
     populateSelect("rentalPlace", rentalPlaces, "Select Pickup location");
     populateSelect("returnPlace", rentalPlaces, "Select Return location");
+
+    const cbPickupLoc = document.getElementById("cb-pickup-loc");
+    const cbReturnLoc = document.getElementById("cb-return-loc");
+    if (cbPickupLoc) populateSelect("cb-pickup-loc", rentalPlaces, "Select Pickup location");
+    if (cbReturnLoc) populateSelect("cb-return-loc", rentalPlaces, "Select Return location");
+
+
+    //Populate the booking forms
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+        const homeNameField = document.getElementById("fullName");
+        const homeEmailField = document.getElementById("email");
+        if (homeNameField && storedUser.name) homeNameField.value = storedUser.name;
+        if (homeEmailField && storedUser.email) homeEmailField.value = storedUser.email;
+
+        // Popup form
+        const popupNameField = document.getElementById("cb-name");
+        const popupEmailField = document.getElementById("cb-email");
+        if (popupNameField && storedUser.name) popupNameField.value = storedUser.name;
+        if (popupEmailField && storedUser.email) popupEmailField.value = storedUser.email;
+    }
 };
 
 console.log("Binding .view-details buttons...");
